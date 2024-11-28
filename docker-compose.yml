@@ -1,0 +1,12 @@
+---
+version: "3.8"
+
+services:
+  docker-base:
+    image: ${DOCKER_REGISTRY_URL}/${DOCKER_REGISTRY_DIR}/${PROJECT_NAME}:${IMAGE_TAG}
+    container_name: ${PROJECT_NAME}
+    build:
+      context: .
+      args:
+        - DOCKER_VERSION=${DOCKER_VERSION}
+        - HADOLINT_VERSION=${HADOLINT_VERSION}
